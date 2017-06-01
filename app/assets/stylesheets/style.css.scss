@@ -1,0 +1,122 @@
+	/* Begin navbar styling on historic_sites/show page */
+	.navbar-nav > li > a, .navbar-brand {
+	    padding-top:4px !important; 
+	    padding-bottom:0 !important;
+	    height: 20px;
+	}
+	.navbar {
+		min-height:20px !important;
+	}
+	/* End navbar styling on historic_sites/show page */
+	/*-------------------------------------------------------------*/
+	/* Begin sidebar button styling on historic_sites/show page */
+	.btn-space {
+		margin-right: 5px;	/* sidebar button margin */
+		margin-bottom: 5px;	/* sidebar button margin */
+	    margin-left: 5px;	/* sidebar button margin */
+	}
+	/* End button styling on historic_sites/show page */
+
+	/* Wrap your buttons in a div with class='col-xs-3' (for example).
+	Add class="btn-block" to your buttons.
+	This will provide permanent spacing. */
+	.custom {
+		height: 50px !important; 		/* sidebar button height */
+	    width: 240px !important; 		/* sidebar button width */
+	    font-size: 12px;				/* sidebar button text height */
+	   	padding-top:8px !important; 	/* sidebar button text padding */
+	    padding-bottom:8px !important; 	/* sidebar button text padding */
+	}
+
+	/* This is for the h1 text on the new.html.erb landing page */
+	.color_text{
+		font-family: Tahoma, sans-serif;
+		font-size: 350%;
+		color: #040404;
+		/*color: #800000;*/
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: white;
+		/* margin: 90px; */
+	}
+	/*-------------------------------------------------------------*/
+	/* Bootstrap Navbar CSS for sites/show.html.erb */	
+
+	.navbar-default{
+	  background: transparent;
+	  border:none;
+	}
+	.navbar-default .navbar-nav > li > a {
+	  /*color: #ffffff;*/	
+	  color: #73152D;
+	  font-size: 200%;
+	}
+	.container-fluid{
+	  padding:0 5%;
+	}
+
+	.container{
+	  padding:0 0%;
+	}
+	.btn{
+	  margin-top:0px;
+	  color: "blue";
+	}
+	/* submit button on show page */
+	.btn-primary-jon {
+		height: 35px;
+		width: 40px;
+		font-size:12px;
+		margin-top:0px;
+		margin-right:2px;
+		margin-left:0px;
+    	background: #0099cc;
+    	color: #ffffff;
+	}
+	.btn-primary {
+    	background: #0099cc;
+    	color: #ffffff;
+	}
+
+	/*-------------------------------------------------------------*/
+	/* Enlarge infowindow image on mouseover */
+
+	.enlarge-onhover {
+	     width: 142px;
+	     /*height: 142px;*/
+	}
+
+	.enlarge-onhover:hover {
+	     width: 400px;
+	     /*height: 375px;*/
+	}
+	/*-------------------------------------------------------------*/
+	/* Background image on landing page sites/new.html.erb*/
+
+	body, html {
+	    height: 100%;
+	}
+
+	.bg { 
+	    /* The image used */
+	    background-image: url('/15636975_copy.jpg');
+	    /* Other possible images */
+	    /*background-image: url("http://www.old-maps.com/NY/ny-state/NY_1812_Arrowsmith-web.jpg");*/
+	    /*background-image: url('/new_york_state_1796.jpg');*/
+	    /*background-image: url('/NY_1849_Ensign_Thayer.jpg');*/
+	    /* background-image: url('/15636975_copy_01.jpg'); */ 
+	    /* http://tile.loc.gov/image-services/iiif/service:gmd:gmd380:g3800:g3800:ar104703/full/pct:12.5/0/default.jpg */
+	    /* http://www.old-maps.com/NY/ny-state/NY_1812_Arrowsmith-web.jpg */
+	    /* http://www.stonybrook.edu/libmap/img005b.jpg */
+
+	    /* Full height */
+	    height: 100%;
+	    width: 100%;
+
+	    /* Center and scale the image nicely */
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    /* Opacity */
+	    /* opacity: 0.5; */
+	}
+	/*-------------------------------------------------------------*/
