@@ -38,7 +38,7 @@ body {
   position: absolute;
   left: 0;
   top: 0.25em; /*0.25em;*/
-  width: 1em;
+  width: 1.5em;
   height: 0.15em;
   background: black;
   box-shadow: 0 0.25em 0 0 black, 0 0.5em 0 0 black;
@@ -47,7 +47,7 @@ body {
 /* hamburger menu pseudo element gradient */
 
 .gradient-menu {
-  padding-left: 1.5em; /* button position - larger numbers moves it to left*/
+  padding-left: 0.25em; /* button position - larger numbers moves it to left*/
   position: relative; /* anything other than relative puts it to the left of the map */
 }
 .gradient-menu:before {
@@ -56,6 +56,7 @@ body {
   left: 0;
   top: 0.21em;/* 0.21em; */
   bottom: 0.21em;
+  height: .45em; /* was 1em before */
   width: .75em; /* was 1em before */
   background: linear-gradient(to bottom, black, black 20%, white 20%, white 40%, black 40%, black 60%, white 60%, white 80%, black 80%, black 100%);
 }

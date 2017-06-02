@@ -5,10 +5,10 @@
 <!-- Dr Molle answered the question of why this code was breaking at first -->
 
     <!-- &callback=initialize was previously &callback=initMap but didn't work -->
+    <!-- I placed the google maps event within the first script, which eliminated errors -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API_KEY"]%>&callback=initialize&libraries=geometry&sensor=false" async defer>
     	google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script> -->
 
     <div id="wrapper">
       <!-- Sidebar -->
@@ -37,14 +37,11 @@
       <div id="page-content-wrapper">
           <!-- /#search form -->
           <!-- <h1><a href="#menu-toggle" class="gradient-menu" id="menu-toggle"></a></h1> -->
-
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-              
               <h1><a href="#menu-toggle" class="gradient-menu" id="menu-toggle"></a></h1>
               <!--&nbsp;search results&nbsp; --><!-- a href="#menu-toggle" class="btn btn-default" >Toggle Sidebar</a -->
-              
               <!-- you can use tables or divs for the overall layout -->
               <div id="map_canvas"></div>
               <!-- <h1>Simple Sidebar</h1> -->
@@ -67,18 +64,14 @@
     <!-- <div id="map_canvas"></div> -->
 
     <script>
-        //the google.maps.event.addDomListener was here, but now is at the bottom
-
-
-        // arrays to hold copies of the markers and html used by the side_bar 
-        // because the function closure trick doesnt work there 
+        //the google.maps.event.addDomListener was here originally, then was moved to the bottom, but now is at the top
+        // Most of the code within these script marjers could be placed in the historic_sites.js file
 
         var gmarkers = [];
         var map = null;
 
         //my variables from the other page
         var geocoder;
-        //var map;
         var historicalSites = [];//declare this variable outside of the $.Get function
         var nycHistoricSites = [];//declare this variable outside of the $.Get function
         var allSites = [];
@@ -298,7 +291,7 @@
 
             // This function picks up the click and opens the corresponding info window
             function myclick(i) {
-              console.log("Inside myclick function");
+              // console.log("Inside myclick function");
               google.maps.event.trigger(gmarkers[i], "click");
             }
 
@@ -318,7 +311,7 @@
 
             //My own create marker function:
             function createMarker(jsonData){
-                console.log(jsonData.name + " from createMarker");
+                // console.log(jsonData.name + " from createMarker");
                 // Create a marker and set its position.
                 var point = new google.maps.LatLng(jsonData.latitude, jsonData.longitude);
                 var marker = new google.maps.Marker({
@@ -367,20 +360,19 @@
             } //END createMarker()
                         //grab the (state) historical sites from my tables via my api
             $.get("/api/v1/sites", function(response) {
-                console.log('This is the $.get /api/v1/sites function in main')
+                // console.log('This is the $.get /api/v1/sites function in main')
                 //create an array and fill it with all of the historicalSites
                 historicalSites = response;
                 // LOOP THROUGH HISTORICALSITES
                 $.get("/api/v1/houses", function(response) {
-                    console.log('This is the $.get /api/v1/houses function in main')
-                    console.log("HOUSESSSSS");
+                    // console.log('This is the $.get /api/v1/houses function in main')
                     //create an array and fill it with all of the historicalSites
                     nycHistoricSites = response;
-                    console.log("********Here are all of the sites from main!*******")
-                    console.log("historicalSites");
-                    console.log(historicalSites);
-                    console.log("nycHistoricSites");
-                    console.log(nycHistoricSites);
+                    // console.log("********Here are all of the sites from main!*******")
+                    // console.log("historicalSites");
+                    // console.log(historicalSites);
+                    // console.log("nycHistoricSites");
+                    // console.log(nycHistoricSites);
                     //concatenate both arrays into a new one
                     allSites = historicalSites.concat(nycHistoricSites);
                     // add distance to each object
@@ -394,21 +386,13 @@
                       //call the function createMarker()
                       createMarker(allSites[j]);
                     }
-                    console.log("allSites");
-                    console.log(allSites);
+                    // console.log("allSites");
+                    // console.log(allSites);
 
                 }.bind(this));
             }.bind(this));
         }//this is where I moved the closing bracket for initialize
-
-        // google.maps.event.addDomListener(window, 'load', initialize);
         var delayMillis = 1000; //1 second
-
-        // setTimeout(function() {
-        //   //your code to be executed after 1 second
-        //   google.maps.event.addDomListener(window, 'load', initialize);
-        // }, delayMillis);
-        
     </script>
 
 
